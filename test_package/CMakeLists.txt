@@ -1,14 +1,12 @@
 project(PackageTest CXX)
 cmake_minimum_required(VERSION 2.8.12)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+
+find_package(meteoio REQUIRED)
 
 add_executable(test test.cpp)
-target_link_libraries(test ${CONAN_LIBS})
-
-# CTest is a testing tool that can be used to test your project.
-# enable_testing()
-# add_test(NAME test
-#          WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-#          COMMAND test)
+target_link_libraries(test meteoio::meteoio)
+set_target_properties(test
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
