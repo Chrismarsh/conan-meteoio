@@ -71,7 +71,14 @@ class ProjConan(ConanFile):
     def configure_cmake(self):
         cmake = CMake(self)
 
-        cmake.definitions["BUILD_SHARED_LIBS"]=self.options.shared
+        if self.options.shared:
+            cmake.definitions["BUILD_SHARED_LIBS"]=True
+            cmake.definitions["BUILD_STATIC_LIBS"]=False
+        else:
+            cmake.definitions["BUILD_SHARED_LIBS"]=False
+            cmake.definitions["BUILD_STATIC_LIBS"]=True
+
+
         cmake.definitions["PLUGIN_A3DIO"]=self.options.PLUGIN_A3DIO
         cmake.definitions["PLUGIN_ALPUG"]=self.options.PLUGIN_ALPUG
         cmake.definitions["PLUGIN_ARCIO"]=self.options.PLUGIN_ARCIO
@@ -101,20 +108,12 @@ class ProjConan(ConanFile):
     def build(self):
         cmake = self.configure_cmake()
         cmake.build()
-        cmake.install()
 
-    # def install(self):
-    #     cmake = self.configure_cmake()
-        
 
     def package(self):
-        # all include files should go in include/gsl
-        self.copy("*.h", dst="include/meteoio", src="meteoio")
-        self.copy("*.dll", dst="bin", keep_path=False)
-        self.copy("*.so", dst="lib", keep_path=False)
-        self.copy("*.dylib", dst="lib", keep_path=False)
-        self.copy("*.lib", dst="lib", keep_path=False)
-        self.copy("*.a", dst="lib", keep_path=False)
+        cmake = self.configure_cmake()
+        cmake.install()
+
 
     def package_info(self):
         self.cpp_info.includedirs = ["include"]
