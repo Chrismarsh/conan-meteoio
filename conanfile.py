@@ -7,7 +7,7 @@ class ProjConan(ConanFile):
     description = """The MeteoIO library aims at making data access easy and safe for numerical simulations in environmental sciences requiring general meteorological data."""
     version = "2.8.0"
     generators = "cmake_find_package"
-    # settings = "os", "compiler", "build_type", "arch"
+    settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False],
                 "PLUGIN_A3DIO":[True,False],
                 "PLUGIN_ALPUG":[True,False],

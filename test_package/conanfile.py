@@ -3,7 +3,7 @@ import os
 
 
 class GslTestConan(ConanFile):
-    settings = "os", "compiler", "build_type", "arch"
+
     generators = "cmake_find_package"
 
     def build(self):
