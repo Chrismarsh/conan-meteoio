@@ -39,7 +39,7 @@ jobs:
           - {os: "ubuntu-latest", compiler: "gcc", version: 8}
           - {os: "ubuntu-latest", compiler: "gcc", version: 9}
           - {os: "macos-latest", compiler: "apple-clang", version: "12.0"}
-        lib-version: ["2.8.0","2.9.0"]
+        lib-version: ["2.8.0"] #,"2.9.0"]  <-- broken
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
