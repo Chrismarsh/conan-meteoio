@@ -1,6 +1,7 @@
 import os
-from conans import ConanFile, CMake
+from conans import ConanFile, CMake, tools
 from conans.tools import download, untargz, patch
+import os
 
 class ProjConan(ConanFile):
     name = "meteoio"
