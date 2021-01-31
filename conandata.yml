@@ -1,0 +1,5 @@
+sources:
+  "2.8.0":
+    url: "https://models.slf.ch/p/meteoio/downloads/get/MeteoIO-2.8.0-src.tar.gz"
+  "2.9.0":
+    url: "https://models.slf.ch/p/meteoio/downloads/get/MeteoIO-2.9.0-src.tar.gz"

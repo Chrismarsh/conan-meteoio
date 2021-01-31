@@ -4,8 +4,9 @@ from conans.tools import download, untargz, patch
 
 class ProjConan(ConanFile):
     name = "meteoio"
-    description = """The MeteoIO library aims at making data access easy and safe for numerical simulations in environmental sciences requiring general meteorological data."""
-    version = "2.8.0"
+    description = """The MeteoIO library aims at making data access easy and safe for numerical 
+    simulations in environmental sciences requiring general meteorological data."""
+
     generators = "cmake_find_package"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False],
@@ -61,12 +62,12 @@ class ProjConan(ConanFile):
     url="https://models.slf.ch/p/meteoio/"
     license="LGPL v3"
 
+    _source_folder = 'MeteoIO'
  
     def source(self):
-        zip_name ="MeteoIO-%s-src.tar.gz" % self.version
-        download("https://models.slf.ch/p/meteoio/downloads/get/%s" % zip_name , zip_name)
-        untargz(zip_name)
-        os.unlink(zip_name)
+        tools.get(**self.conan_data["sources"][self.version])
+        os.rename("MeteoIO-{}".format(self.version), self._source_folder)
+
 
     def configure_cmake(self):
         cmake = CMake(self)
@@ -102,7 +103,7 @@ class ProjConan(ConanFile):
         cmake.definitions["PLUGIN_SASEIO"]=self.options.PLUGIN_SASEIO
         cmake.definitions["PROJ4"]=self.options.PROJ4
 
-        cmake.configure(source_folder="MeteoIO-%s-src" % self.version)
+        cmake.configure(source_folder=self._source_folder)
         return cmake
 
     def build(self):
