@@ -67,7 +67,7 @@ class ProjConan(ConanFile):
  
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
-        os.rename("MeteoIO-{}-src".format(self.version), self._source_folder)
+        os.rename("meteoio-MeteoIO-{}".format(self.version), self._source_folder)
 
 
     def configure_cmake(self):

@@ -2,4 +2,4 @@ sources:
   "2.8.0":
     url: "https://gitlabext.wsl.ch/snow-models/meteoio/-/archive/MeteoIO-2.8.0/meteoio-MeteoIO-2.8.0.tar.gz"
   "2.9.0":
-    url: "https://gitlabext.wsl.ch/snow-models/meteoio/-/archive/MeteoIO-2.9.0/meteoio-MeteoIO-2.9.0.tar.gzz"
+    url: "https://gitlabext.wsl.ch/snow-models/meteoio/-/archive/MeteoIO-2.9.0/meteoio-MeteoIO-2.9.0.tar.gz"
