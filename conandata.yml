@@ -1,5 +1,5 @@
 sources:
   "2.8.0":
-    url: "https://models.slf.ch/p/meteoio/downloads/get/MeteoIO-2.8.0-src.tar.gz"
+    url: "https://gitlabext.wsl.ch/snow-models/meteoio/-/archive/MeteoIO-2.8.0/meteoio-MeteoIO-2.8.0.tar.gz"
   "2.9.0":
-    url: "https://models.slf.ch/p/meteoio/downloads/get/MeteoIO-2.9.0-src.tar.gz"
+    url: "https://gitlabext.wsl.ch/snow-models/meteoio/-/archive/MeteoIO-2.9.0/meteoio-MeteoIO-2.9.0.tar.gzz"
